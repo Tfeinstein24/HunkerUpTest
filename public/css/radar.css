@@ -1,0 +1,22 @@
+.jumbotron {
+    font-family: "Book Antiqua";
+    font-weight: bold;
+    background-color: lightblue;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 2px 2px 2px white;
+}
+
+header {
+    background-color: lightblue;
+}
+
+.main-content {
+    font-family: "Book Antiqua";
+}
+
+@media (max-width: 767px) {
+    #radar-image {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>FeatureLayer</title>
+
+<link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+<script src="https://js.arcgis.com/3.20/"></script>
+
+<style>
+html, body, #map {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+</style>
+
+<script>
+require([
+    "esri/map",
+    "esri/layers/FeatureLayer",
+    "dojo/domReady!"
+  ],
+  function(
+    Map,
+    FeatureLayer
+  ) {
+
+    var map = new Map("map", {
+      basemap: "topo",
+      center: [-95.366302,29.761993],
+      zoom: 10
+    });
+
+    /****************************************************************
+     * Add feature layer - A FeatureLayer at minimum should point
+     * to a URL to a feature service or point to a feature collection 
+     * object.
+     ***************************************************************/
+setTimeout(function(){
+    console.log("pausing a few seconds");
+},3000);
+
+    // Category 5 Storm Surge
+    var featureLayer = new FeatureLayer("https://utility.arcgis.com/usrsvcs/servers/78a4985bb5dc4abcac8d8c0d4225b0df/rest/services/USA_Flood_Risk/MapServer");
+
+    map.addLayer(featureLayer);
+    console.log(map.addLayer(featureLayer));
+  });
+</script>
+</head>
+
+<body>
+  <div id="map"></div>
+</body>
+
+</html>

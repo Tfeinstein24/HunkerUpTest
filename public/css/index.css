@@ -1,0 +1,18 @@
+.btn {
+    font-size: 1em;
+    color: white;
+}
+
+header {
+    font-family: "Book Antiqua";
+    font-size: 2rem;
+    color: black;
+}
+
+.main-body {
+    background: url('../images/rain2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: .7;
+    color: whitesmoke;
+    height: 45rem;
+}

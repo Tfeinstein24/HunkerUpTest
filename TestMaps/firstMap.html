@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <!-- Reverence to ArcGIS CSS -->
+      <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+<script src="https://js.arcgis.com/4.3/"></script>
+       <!-- JavaScript to load a map into view -->
+       <script>
+           require([
+  "esri/Map",
+  "esri/views/MapView",
+  //*** ADD ***//
+  "esri/layers/FeatureLayer",
+  "dojo/domReady!"
+], function(Map, MapView, FeatureLayer) {
+
+  var map = new Map({
+    basemap: "topo-vector"
+  });
+
+  //*** ADD ***//
+  var featureLayer = new FeatureLayer({
+    url: "http://tiles.arcgis.com/tiles/C8EMgrsFcRFL6LrL/arcgis/rest/services/NHC_NationalMOM_Category5_CONUS/MapServer"
+  });
+
+  map.add(featureLayer);
+
+  var view = new MapView({
+    container: "viewDiv",
+    map: map,
+    //*** ADD ***//
+  center: [-95.366302,29.761993],
+  zoom: 9
+  });
+});
+       </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>DevLabs - Create a 2D map with a feature layer</title>
+    <style>
+      html, body, #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

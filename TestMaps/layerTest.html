@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Tiled map service</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+    <style>
+      html, body, #map {
+        height: 100%; width: 100%; margin: 0; padding: 0;
+      }
+    </style>
+
+    <script src="https://js.arcgis.com/3.20/"></script>
+    <script>
+      var map;
+
+      require(["esri/map", 
+        "esri/layers/ArcGISTiledMapServiceLayer", 
+        "esri/geometry/Point",
+        "esri/SpatialReference",
+        "dojo/domReady!",
+        ],
+        function(Map, ArcGISTiledMapServiceLayer, Point, SpatialReference) {
+          var map = new Map("map", {
+      basemap: "hybrid",
+      center: [-95.366302,29.761993],
+      zoom: 10
+    });
+            // Category 5 Storm Surge
+          var tiled = new ArcGISTiledMapServiceLayer("http://tiles.arcgis.com/tiles/C8EMgrsFcRFL6LrL/arcgis/rest/services/NHC_NationalMOM_Category5_CONUS/MapServer");
+          map.addLayer(tiled);
+        }
+      );
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>
